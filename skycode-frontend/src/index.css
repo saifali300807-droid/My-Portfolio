@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --obsidian: #050508;
+  --obsidian-soft: #0a0c12;
+  --cyan: #00f0ff;
+  --gold: #e7c793;
+  color-scheme: dark;
+
+  --sky-bg: #050508;
+  --sky-band: rgba(5, 5, 8, 0.82);
+  --sky-card: rgba(10, 10, 12, 0.88);
+  --sky-border: rgba(255, 255, 255, 0.1);
+  --sky-border-strong: rgba(255, 255, 255, 0.2);
+  --sky-fill: rgba(255, 255, 255, 0.05);
+  --sky-text: #f7f2ea;
+  --sky-muted: rgba(247, 242, 234, 0.55);
+  --sky-cyan: #00f0ff;
+  --sky-gold: #e7c793;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--sky-bg);
+  color: var(--sky-text);
+  font-family: ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.28);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sky-bg);
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--sky-bg);
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #00f0ff, #e7c793);
+}
