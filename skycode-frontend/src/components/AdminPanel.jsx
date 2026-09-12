@@ -503,7 +503,7 @@ export default function AdminPanel({
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center justify-center rounded-full border border-cyan-400/50 bg-black/80 p-1 shadow-[0_0_14px_rgba(0,240,255,0.25)]">
-              <img src="/logo.png" alt="Sky Code logo" className="h-7 w-7 object-contain" />
+              <img src="logo.png" alt="Sky Code logo" className="h-7 w-7 object-contain" />
             </span>
             <div>
               <p className="font-mono text-[0.6rem] uppercase tracking-[0.4em] text-[var(--sky-cyan)]">

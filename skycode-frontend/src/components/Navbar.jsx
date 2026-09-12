@@ -48,7 +48,7 @@ export default function Navbar({ className }) {
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 bg-[#0A0A0C]/80 py-2 pl-3 pr-4 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:pl-4 sm:pr-6">
         <a href="#top" className="flex shrink-0 items-center gap-3.5" aria-label="Sky Code — home">
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-cyan-400 bg-black shadow-[0_0_15px_rgba(0,240,255,0.6)] p-1">
-            <img src="/logo.png" alt="Sky Code logo" className="h-full w-full object-contain" />
+            <img src="logo.png" alt="Sky Code logo" className="h-full w-full object-contain" />
           </span>
           <span className="hidden text-base font-semibold tracking-[0.38em] text-white lg:inline">SKY CODE</span>
         </a>
@@ -105,7 +105,7 @@ export default function Navbar({ className }) {
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center justify-center rounded-full border-2 border-cyan-400 bg-black shadow-[0_0_15px_rgba(0,240,255,0.6)] p-1">
-                  <img src="/logo.png" alt="Sky Code logo" className="h-9 w-9 object-contain" />
+                  <img src="logo.png" alt="Sky Code logo" className="h-9 w-9 object-contain" />
                 </span>
                 <button
                   type="button"
