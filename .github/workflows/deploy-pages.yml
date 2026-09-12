@@ -37,6 +37,8 @@ jobs:
 
       - name: Build static site
         working-directory: skycode-frontend
+        env:
+          VITE_API_URL: https://skycode-backend.onrender.com/api
         run: npm run build
 
       - name: Upload Pages artifact
