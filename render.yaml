@@ -1,0 +1,25 @@
+# Render Blueprint — Sky Code Backend
+# Use karo: render.com → "New +" → "Blueprint" → ye repo select karo.
+# Secrets (MONGO_URI, JWT_SECRET, admin credentials) Render dashboard me
+# fill karni hoti hain — wo commit nahi hote.
+services:
+  - type: web
+    name: skycode-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: DEFAULT_ADMIN_USERNAME
+        sync: false
+      - key: DEFAULT_ADMIN_PASSWORD
+        sync: false

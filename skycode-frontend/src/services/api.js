@@ -2,8 +2,12 @@
 /* ---------------------------------------------------------------------------
  * Sky Code — API Service Layer
  * ---------------------------------------------------------------------------
- * Centralised Axios client for the Sky Code backend
- * (`http://localhost:5000/api`).
+ * Centralised Axios client for the Sky Code backend.
+ *
+ * API URL priority:
+ *   1. `VITE_API_URL` build-time env var — live/production build ke liye
+ *      (jaise Render ka `https://my-backend.onrender.com/api`)
+ *   2. `http://localhost:5000/api` — local development default
  *
  * Every exported function resolves instead of rejecting: network errors,
  * server errors and invalid tokens degrade to graceful fallbacks (empty
@@ -15,8 +19,8 @@ import axios from 'axios'
 
 /** Shared Axios instance pointed at the Sky Code REST API. */
 export const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
-  timeout: 10000,
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  timeout: 15000,
   headers: { 'Content-Type': 'application/json' },
 })
 
