@@ -1,0 +1,12 @@
+# GitHub Pages — Jekyll exclusions (backup)
+# Primary protection is the .nojekyll file in the repo root, which disables
+# Jekyll entirely. This config is kept so that on the off-chance Jekyll ever
+# runs, dependency folders are never scanned (their docs can contain Liquid
+# syntax that breaks the build).
+exclude:
+  - backend/node_modules
+  - node_modules
+  - skycode-frontend/node_modules
+  - vendor
+  - .git
+  - .github
