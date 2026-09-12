@@ -95,18 +95,18 @@ function TerminalContact({ whatsapp }) {
     }
 
     // Professional WhatsApp transmission — studio ke configured number par.
-    // Emojis explicit Unicode code points se bante hain taaki WhatsApp par
-    // reliably render ho (file/URL encoding se independent).
-    const eSparkles = String.fromCodePoint(0x2728)
-    const eWave = String.fromCodePoint(0x1f44b)
-    const ePerson = String.fromCodePoint(0x1f464)
-    const eEmail = String.fromCodePoint(0x1f4e7)
-    const eSpeech = String.fromCodePoint(0x1f4ac)
-    const eRocket = String.fromCodePoint(0x1f680)
-    const divider = String.fromCodePoint(0x2501).repeat(18)
+    // Emojis explicit Unicode code points se bante hain; divider pure ASCII hai
+    // (box-drawing characters kisi kisi WhatsApp client par render nahi hote).
+    const eHeader = String.fromCodePoint(0x1f4e5) // 📩 incoming envelope
+    const eWave = String.fromCodePoint(0x1f44b) // 👋 wave
+    const ePerson = String.fromCodePoint(0x1f464) // 👤 bust
+    const eEmail = String.fromCodePoint(0x1f4e7) // 📧 e-mail
+    const eSpeech = String.fromCodePoint(0x1f4ac) // 💬 speech balloon
+    const eRocket = String.fromCodePoint(0x1f680) // 🚀 rocket
+    const divider = '--------------------------------'
 
     const text = [
-      `${eSparkles} *NEW PROJECT INQUIRY* ${eSparkles}`,
+      `${eHeader} *NEW PROJECT INQUIRY*`,
       '_Sky Code — Website Inquiry_',
       divider,
       `Hello Sky Code Studio! ${eWave}`,

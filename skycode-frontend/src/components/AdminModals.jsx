@@ -76,7 +76,7 @@ function ModalShell({ open, onClose, label, icon: Icon, title, children }) {
             role="dialog"
             aria-modal="true"
             aria-label={label}
-            className="relative z-10 w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d14]/90 p-7 shadow-[0_24px_80px_rgba(0,0,0,0.65)] backdrop-blur-2xl"
+            className="relative z-10 max-h-[90vh] w-full max-w-md overflow-y-auto rounded-3xl border border-white/10 bg-[#0b0d14]/90 p-7 shadow-[0_24px_80px_rgba(0,0,0,0.65)] backdrop-blur-2xl"
           >
             {/* Glowing cyan top hairline */}
             <span
@@ -222,6 +222,7 @@ export function AddProjectModal({ open, onClose, onSubmit, project }) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [imageError, setImageError] = useState(false)
+  const [showPreview, setShowPreview] = useState(true)
 
   const updateField = (field) => (event) => {
     const { value } = event.target
@@ -323,17 +324,35 @@ export function AddProjectModal({ open, onClose, onSubmit, project }) {
 
         {draft.imageUrl.trim() ? (
           <div>
-            <span className="mb-1.5 block text-xs uppercase tracking-[0.28em] text-white/45">Image Preview</span>
-            <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/40">
-              <img
-                src={draft.imageUrl.trim()}
-                alt="Project image preview"
-                className="h-full w-full object-cover"
-                onError={() => setImageError(true)}
-                onLoad={() => setImageError(false)}
-              />
+            <div className="mb-1.5 flex items-center justify-between gap-3">
+              <span className="text-xs uppercase tracking-[0.28em] text-white/45">Image Preview</span>
+              <button
+                type="button"
+                onClick={() => setShowPreview((prev) => !prev)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[0.6rem] font-mono uppercase tracking-wider text-white/60 transition-all duration-300 hover:border-cyan-400/40 hover:text-cyan-300"
+              >
+                <EyeOff className="h-3 w-3" aria-hidden="true" />
+                {showPreview ? 'Hide Preview' : 'Show Preview'}
+              </button>
             </div>
-            {imageError ? (
+            {showPreview ? (
+              <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/40">
+                <img
+                  src={draft.imageUrl.trim()}
+                  alt="Project image preview"
+                  className="h-full w-full object-cover"
+                  onError={() => setImageError(true)}
+                  onLoad={() => setImageError(false)}
+                />
+              </div>
+            ) : (
+              <div className="flex aspect-video items-center justify-center rounded-xl border border-white/10 bg-black/30">
+                <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/30">
+                  Preview hidden
+                </span>
+              </div>
+            )}
+            {showPreview && imageError ? (
               <p className={ERROR_CLASS}>
                 Ye link direct image nahi hai — load nahi ho raha. Image par right-click karke
                 "Copy image address" wala direct link use karo (.jpg / .png / .webp). Google ke
